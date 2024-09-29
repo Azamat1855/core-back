@@ -9,7 +9,8 @@ const attendanceRoutes = require('./routes/AttendanceRouter');
 const CoinRouter = require('./routes/coinRoutes');
 const shopRouter = require('./routes/shopRouter');
 const GroupRoutes = require('./routes/GroupRoutes');
-
+const BranchRouter = require('./routes/BranchsRouter')
+const UsersRoutes = require('./routes/UsersRouter');
 
 const feedbackRoutes = require('../src/routes/feedbackRouter')
 const app = express();
@@ -23,6 +24,8 @@ app.use('/api/v1/student', CoinRouter)
 app.use('/api/v1/products', productsRouter)
 app.use('/api/v1/shop', shopRouter)
 app.use('/api/v1/feedback', feedbackRoutes);
+app.use('/api/v1/users', UsersRoutes);
+app.use('/api/v1/branches', BranchRouter);
 app.use('/api/v1',  RoleMiddleware(['teacher','admin']), attendanceRoutes);
 app.use('/api/v1/groups',RoleMiddleware(['admin']),GroupRoutes)
 

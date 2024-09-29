@@ -19,7 +19,7 @@ router.post("/create", async (req, res) => {
     console.log(`Error creating group: ${error}`);
     return res.status(400).json({ message: "Error creating group!" });
   }
-});
+}); 
 
 // Get all groups with student names
 router.get("/", async (req, res) => {
